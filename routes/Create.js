@@ -20,7 +20,7 @@ router.post("/signUp", async (req, res) => {
   try {
     const alReadyExist = await User.findOne({ email: req.fields.email });
     if (alReadyExist) {
-      return res.status(403).json({ message: `User Already exist` });
+      return res.status(400).json({ message: `User Already exist` });
     }
 
     if (req.fields.username === "") {
